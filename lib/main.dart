@@ -48,10 +48,30 @@ class FirstScreen extends StatelessWidget {
         //     borderRadius: BorderRadius.circular(10),
         //   ),
         // )
-        child: Padding(
-          padding: EdgeInsets.all(30),
-          child: Text('Ini Padding'),
-        ),
+        // child: Padding(
+        //   padding: EdgeInsets.all(30),
+        //   child: Text('Ini Padding'),
+        // ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget> [
+            IconButton(
+              icon: Icon(Icons.share), 
+              onPressed: () {  },
+              color: Colors.grey,
+            ),
+            IconButton(
+              icon: Icon(
+              Icons.thumb_up),
+              onPressed: () {  },
+              color: Colors.blue,
+            ),
+            IconButton(
+              icon: Icon(Icons.thumb_down),
+              onPressed: () {  },
+            ),
+          ],
+        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {  },
