@@ -54,6 +54,11 @@ class FirstScreen extends StatelessWidget {
         // ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget> [
             IconButton(
               icon: Icon(Icons.share), 
