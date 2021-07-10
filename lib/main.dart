@@ -8,11 +8,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Wisata Bandung',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: FirstScreen());
+        home: DetailScreen());
   }
 }
 
@@ -39,106 +39,66 @@ class FirstScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-          // child: Text('Hello world!'),
-          // child: Container(
-          //   child: Text('Hi', style: TextStyle(fontSize: 40),),
-          //   decoration: BoxDecoration(
-          //     color: Colors.red,
-          //     border: Border.all(color: Colors.green,width: 3),
-          //     borderRadius: BorderRadius.circular(10),
-          //   ),
-          // )
-          // child: Padding(
-          //   padding: EdgeInsets.all(30),
-          //   child: Text('Ini Padding'),
-          // ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // mainAxisAlignment: MainAxisAlignment.spaceAround,
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          // mainAxisAlignment: MainAxisAlignment.start,
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.end,
+    );
+  }
+}
+
+class DetailScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Column(
-              children: <Widget>[
-                Text(
-                  'Sebuah Judul',
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            Container(
+              margin: EdgeInsets.only(top: 16.0),
+              child: Text(
+                'Farm House Lembang',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
                 ),
-                Text('Lorem ipsum dolor sit amet'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellow[600],
-                        ),
-                        Icon(Icons.star,
-                          color: Colors.yellow[600],
-                        ),
-                        Icon(Icons.star,
-                          color: Colors.yellow[600],
-                        ),
-                        Icon(Icons.star,
-                          color: Colors.yellow[600],
-                        ),
-                        Icon(Icons.star,
-                          color: Colors.grey,
-                        ),
-                      ],
-                    ),
-                    Text('170 Reviews')
-                  ],
-                ),
-                Row(
-                  children: [
-                    Column(
-                      children: [
-                        Icon(
-                          Icons.book,
-                          color: Colors.green[200],
-                        ),
-                        Text('PREP:'),
-                        Text('25 Min')
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Icon(
-                          Icons.timer,
-                          color: Colors.green[200],
-                        ),
-                        Text('COOK:'),
-                        Text('1 Hr')
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Icon(
-                          Icons.restaurant_menu_outlined,
-                          color: Colors.green[200],
-                        ),
-                        Text('FEEDS:'),
-                        Text('2-5 Min')
-                      ],
-                    )
-                  ],
-                ),
-                
-              ],
-            )
+              )
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Icon(Icons.calendar_today),
+                      Text('Open Everyday'),
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Icon(Icons.access_time),
+                      Text('09:00 - 20:00'),
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Icon(Icons.monetization_on),
+                      Text('Rp. 25.000'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                'Berada di jalur utama Bandung-Lembang, Farm House menjadi objek wisata yang tidak pernah sepi pengunjung. Selain karena letaknya strategis, kawasan ini juga menghadirkan nuansa wisata khas Eropa. Semua itu diterapkan dalam bentuk spot swafoto Instagramable.',
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 16.0),
+              ),
+            ),
           ],
-        )
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
-      ),
+        ),
+      )
     );
   }
 }
