@@ -16,11 +16,22 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class FirstScreen extends StatefulWidget {
-  const FirstScreen({Key? key}) : super(key: key);
-
+class FirstScreen extends StatelessWidget {
   @override
-  State<FirstScreen> createState() => _FirstScreenState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('First Screen'),
+      ),
+      body: Center(
+        child: Image.network(
+          'https://picsum.photos/200/300',
+          width: 200,
+          height: 200,
+        ),
+      ),
+    );
+  }
 }
 
 // class _FirstScreenState extends State<FirstScreen> {
@@ -97,49 +108,49 @@ class FirstScreen extends StatefulWidget {
 //   }
 // }
 
-class _FirstScreenState extends State<FirstScreen> {
-  String _name = '';
+// class _FirstScreenState extends State<FirstScreen> {
+//   String _name = '';
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('First Screen'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Write your name here...',
-                labelText: 'Your Name',
-              ),
-              onChanged: (String value) {
-                setState(() {
-                  _name = value;
-                });
-              },
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        content: Text('Hello, $_name'),
-                      );
-                    });
-              },
-              child: Text('Submit'),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('First Screen'),
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: Column(
+//           children: [
+//             TextField(
+//               decoration: InputDecoration(
+//                 hintText: 'Write your name here...',
+//                 labelText: 'Your Name',
+//               ),
+//               onChanged: (String value) {
+//                 setState(() {
+//                   _name = value;
+//                 });
+//               },
+//             ),
+//             SizedBox(height: 20),
+//             ElevatedButton(
+//               onPressed: () {
+//                 showDialog(
+//                     context: context,
+//                     builder: (context) {
+//                       return AlertDialog(
+//                         content: Text('Hello, $_name'),
+//                       );
+//                     });
+//               },
+//               child: Text('Submit'),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class DetailScreen extends StatelessWidget {
   @override
