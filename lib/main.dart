@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Wisata Bandung',
         theme: ThemeData(
+          fontFamily: 'Oswald',
           primarySwatch: Colors.blue,
         ),
         home: FirstScreen());
@@ -33,7 +34,10 @@ class FirstScreen extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Image.asset('images/img.png', width: 200, height: 200),
+        child: 
+        // Image.asset('images/img.png', width: 200, height: 200),
+        // Text('New Font'),
+        Text('Custom Font', style: TextStyle(fontFamily: 'Oswald', fontSize: 30,),)
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {  },
