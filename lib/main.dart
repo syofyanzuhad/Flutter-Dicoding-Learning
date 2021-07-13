@@ -44,6 +44,34 @@ class FirstScreen extends StatelessWidget {
 }
 
 // class _FirstScreenState extends State<FirstScreen> {
+//   bool lightOn = false;
+ 
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('First Screen'),
+//       ),
+//       body: Switch(
+//         value: lightOn,
+//         onChanged: (bool value) {
+//           setState(() {
+//             lightOn = value;
+//           });
+ 
+//           ScaffoldMessenger.of(context).showSnackBar(
+//             SnackBar(
+//               content: Text(lightOn ? 'Light On' : 'Light Off'),
+//               duration: Duration(seconds: 1),
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+
+// class _FirstScreenState extends State<FirstScreen> {
 //   TextEditingController _controller = TextEditingController();
  
 //   @override
