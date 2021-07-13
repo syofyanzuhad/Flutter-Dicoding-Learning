@@ -17,18 +17,27 @@ class MyApp extends StatelessWidget {
 }
 
 class FirstScreen extends StatelessWidget {
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu, color: Colors.white,), onPressed: () {  },
+        ),
         title: Text('First Screen'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search, color: Colors.white,), onPressed: () {  },
+          )
+        ],
       ),
       body: Center(
-        child: Image.network(
-          'https://picsum.photos/200/300',
-          width: 200,
-          height: 200,
-        ),
+        child: Image.asset('images/img.png', width: 200, height: 200),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {  },
+        child: Icon(Icons.add),
       ),
     );
   }
