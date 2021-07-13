@@ -16,60 +16,40 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class FirstScreen extends StatelessWidget {
+class FirstScreen extends StatefulWidget {
+  const FirstScreen({Key? key}) : super(key: key);
+
+  @override
+  State<FirstScreen> createState() => _FirstScreenState();
+}
+
+class _FirstScreenState extends State<FirstScreen> {
+  bool lightOn = false;
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.white,
-          ),
-          onPressed: () {},
-        ),
         title: Text('First Screen'),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Colors.white,
+      ),
+      body: Switch(
+        value: lightOn,
+        onChanged: (bool value) {
+          setState(() {
+            lightOn = value;
+          });
+ 
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(lightOn ? 'Light On' : 'Light Off'),
+              duration: Duration(seconds: 1),
             ),
-            onPressed: () {},
-          ),
-        ],
+          );
+        },
       ),
     );
   }
 }
-
-// class _FirstScreenState extends State<FirstScreen> {
-//   bool lightOn = false;
- 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('First Screen'),
-//       ),
-//       body: Switch(
-//         value: lightOn,
-//         onChanged: (bool value) {
-//           setState(() {
-//             lightOn = value;
-//           });
- 
-//           ScaffoldMessenger.of(context).showSnackBar(
-//             SnackBar(
-//               content: Text(lightOn ? 'Light On' : 'Light Off'),
-//               duration: Duration(seconds: 1),
-//             ),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
 
 // class _FirstScreenState extends State<FirstScreen> {
 //   TextEditingController _controller = TextEditingController();
