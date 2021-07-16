@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/detail_screen.dart';
 import 'package:flutter_application_1/scroll_screen.dart';
 import 'package:flutter_application_1/responsive_screen.dart';
+import 'package:flutter_application_1/second_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,35 +17,28 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Oswald',
           primarySwatch: Colors.blue,
         ),
-        home: Rainbow());
+        home: FirstScreen());
   }
 }
 
 class FirstScreen extends StatelessWidget {
+  final String message = 'Hello from First Screen!';
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.white,), onPressed: () {  },
-        ),
         title: Text('First Screen'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search, color: Colors.white,), onPressed: () {  },
-          )
-        ],
       ),
       body: Center(
-        child: 
-        // Image.asset('images/img.png', width: 200, height: 200),
-        // Text('New Font'),
-        Text('Custom Font', style: TextStyle(fontFamily: 'Oswald', fontSize: 30,),)
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {  },
-        child: Icon(Icons.add),
+        child: ElevatedButton(
+          child: Text('Pindah Screen'),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return SecondScreen(message);
+            }));
+          },
+        ),
       ),
     );
   }
