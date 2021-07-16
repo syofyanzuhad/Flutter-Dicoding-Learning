@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/detail_screen.dart';
+import 'package:flutter_application_1/scroll_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Oswald',
           primarySwatch: Colors.blue,
         ),
-        home: DetailScreen());
+        home: ScrollingScreen());
   }
 }
 
