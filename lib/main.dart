@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/detail_screen.dart';
-import 'package:flutter_application_1/scroll_screen.dart';
-import 'package:flutter_application_1/responsive_screen.dart';
+import 'package:flutter_application_1/model/tourism_place.dart';
 import 'package:flutter_application_1/second_screen.dart';
 
 void main() {
@@ -17,14 +16,68 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Oswald',
           primarySwatch: Colors.blue,
         ),
-        home: ResponsivePage());
+        home: MainScreen());
+  }
+}
+
+class MainScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Wisata Bandung'),
+      ),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          final TourismPlace place = tourismPlaceList[index];
+          return InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailScreen(place: place);
+              }));
+            },
+            child: Card(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Image.asset(place.imageAsset),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            place.name,
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(place.location),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        },
+        itemCount: tourismPlaceList.length,
+      ),
+    );
   }
 }
 
 class FirstScreen extends StatelessWidget {
   final String message = 'Hello from First Screen!';
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -70,7 +123,7 @@ class ResponsivePage extends StatelessWidget {
       ),
     );
   }
- 
+
   List<Widget> _generateContainers() {
     return List<Widget>.generate(20, (index) {
       return Container(
@@ -86,7 +139,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
- 
+
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       body: Row(
@@ -147,7 +200,7 @@ class HomePage extends StatelessWidget {
 
 // class _FirstScreenState extends State<FirstScreen> {
 //   bool lightOn = false;
- 
+
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -160,7 +213,7 @@ class HomePage extends StatelessWidget {
 //           setState(() {
 //             lightOn = value;
 //           });
- 
+
 //           ScaffoldMessenger.of(context).showSnackBar(
 //             SnackBar(
 //               content: Text(lightOn ? 'Light On' : 'Light Off'),
@@ -175,7 +228,7 @@ class HomePage extends StatelessWidget {
 
 // class _FirstScreenState extends State<FirstScreen> {
 //   TextEditingController _controller = TextEditingController();
- 
+
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -211,7 +264,7 @@ class HomePage extends StatelessWidget {
 //       ),
 //     );
 //   }
- 
+
 //   @override
 //   void dispose() {
 //     _controller.dispose();
